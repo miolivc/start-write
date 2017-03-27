@@ -3,11 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.edu.ifpb.praticas.start.write.dao.mongodb;
+package br.edu.ifpb.bdnc.start.write.dao.mongodb;
 
-import br.edu.ifpb.praticas.start.write.dao.PessoaDao;
-import br.edu.ifpb.praticas.start.write.factory.MongoConnectionFactory;
-import br.edu.ifpb.praticas.start.write.model.Pessoa;
+import br.edu.ifpb.bdnc.start.write.dao.PessoaDao;
+import br.edu.ifpb.bdnc.start.write.factory.MongoConnectionFactory;
+import br.edu.ifpb.bdnc.start.write.model.Pessoa;
 import com.mongodb.BasicDBObject;
 import com.mongodb.DBCollection;
 import com.mongodb.MongoClient;

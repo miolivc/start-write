@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.edu.ifpb.praticas.start.write.factory;
+package br.edu.ifpb.bdnc.start.write.factory;
 
 import com.mongodb.DB;
 import com.mongodb.MongoClient;

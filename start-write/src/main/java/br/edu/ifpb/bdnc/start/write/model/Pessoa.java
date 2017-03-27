@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.edu.ifpb.praticas.start.write.model;
+package br.edu.ifpb.bdnc.start.write.model;
 
 import java.util.Date;
 import java.util.Objects;
