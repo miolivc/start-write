@@ -5,7 +5,7 @@
  */
 package br.edu.ifpb.bdnc.start.write.dao;
 
-import br.edu.ifpb.bdnc.start.write.model.Pessoa;
+import br.edu.ifpb.bdnc.start.write.model.Usuario;
 import java.util.List;
 
 /**
@@ -14,10 +14,10 @@ import java.util.List;
  */
 public interface PessoaDao {
     
-    public void add(Pessoa pessoa);
+    public void add(Usuario pessoa);
     public void delete(String email);
-    public List<Pessoa> list();
-    public Pessoa find(String email);
-    public void update(Pessoa pessoa);
+    public List<Usuario> list();
+    public Usuario find(String email);
+    public void update(Usuario pessoa);
     
 }

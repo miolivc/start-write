@@ -7,7 +7,7 @@ package br.edu.ifpb.bdnc.start.write.dao.mongodb;
 
 import br.edu.ifpb.bdnc.start.write.dao.PessoaDao;
 import br.edu.ifpb.bdnc.start.write.factory.MongoConnectionFactory;
-import br.edu.ifpb.bdnc.start.write.model.Pessoa;
+import br.edu.ifpb.bdnc.start.write.model.Usuario;
 import com.mongodb.BasicDBObject;
 import com.mongodb.DBCollection;
 import com.mongodb.MongoClient;
@@ -32,7 +32,7 @@ public class PessoaDaoMongo implements PessoaDao {
     }
 
     @Override
-    public void add(Pessoa pessoa) {
+    public void add(Usuario pessoa) {
         dBObject = new BasicDBObject("username", pessoa.getUsername())
                 .append("birthDate", pessoa.getBirthDate())
                 .append("password", pessoa.getPassword())
@@ -48,17 +48,17 @@ public class PessoaDaoMongo implements PessoaDao {
     }
 
     @Override
-    public List<Pessoa> list() {
+    public List<Usuario> list() {
         return null;
     }
 
     @Override
-    public Pessoa find(String email) {
+    public Usuario find(String email) {
         return null;
     }
 
     @Override
-    public void update(Pessoa pessoa) {
+    public void update(Usuario pessoa) {
         
     }
 

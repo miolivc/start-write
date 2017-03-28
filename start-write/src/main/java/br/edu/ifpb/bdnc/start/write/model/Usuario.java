@@ -12,7 +12,7 @@ import java.util.Objects;
  *
  * @author miolivc
  */
-public class Pessoa {
+public class Usuario {
     
     private String username;
     private Date birthDate;
@@ -20,7 +20,7 @@ public class Pessoa {
     private String email;
     private String name;
 
-    public Pessoa(String username, Date birthDate, String password, String email, String name) {
+    public Usuario(String username, Date birthDate, String password, String email, String name) {
         this.username = username;
         this.birthDate = birthDate;
         this.password = password;
@@ -85,7 +85,7 @@ public class Pessoa {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Pessoa other = (Pessoa) obj;
+        final Usuario other = (Usuario) obj;
         if (!Objects.equals(this.username, other.username)) {
             return false;
         }
