@@ -14,7 +14,9 @@ public class ControlePrincipal extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, ClassNotFoundException, InstantiationException, IllegalAccessException {
+        
         response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("UTF-8");
         String comando = request.getParameter("comando");
         Comando novaAcao = (Comando) Class.forName(comando).newInstance();
         novaAcao.executar(request, response);
