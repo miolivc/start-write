@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.edu.ifpb.bdnc.start.write.model;
+package br.edu.ifpb.bdnc.start.write.model.paginavenda;
 
+import br.edu.ifpb.bdnc.start.write.model.Pagina;
 import java.util.ArrayList;
 import java.util.Objects;
 
