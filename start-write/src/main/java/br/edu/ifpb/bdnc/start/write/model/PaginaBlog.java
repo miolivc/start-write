@@ -5,16 +5,15 @@
  */
 package br.edu.ifpb.bdnc.start.write.model;
 
-import org.bson.Document;
 
 /**
  *
  * @author Alann Rodrigues
- * @param <T>
  */
-public interface ToDocument<T> {
+public class PaginaBlog extends Pagina{
     
-    public Document toDocument();
-    public T fromDocument(Document doc);
+    public PaginaBlog(String nome, byte[] logomarca, String rodape) {
+        super(nome, logomarca, rodape);
+    }
     
 }

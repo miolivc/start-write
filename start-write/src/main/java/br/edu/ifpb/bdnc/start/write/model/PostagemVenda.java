@@ -3,13 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.edu.ifpb.bdnc.start.write.model.paginavenda;
+package br.edu.ifpb.bdnc.start.write.model;
 
-import br.edu.ifpb.bdnc.start.write.model.Categoria;
-import br.edu.ifpb.bdnc.start.write.model.ToDocument;
 import java.util.Arrays;
 import java.util.Objects;
-import javax.swing.text.Document;
+import org.bson.Document;
 
 /**
  *
@@ -141,7 +139,7 @@ public class PostagemVenda implements ToDocument<PostagemVenda>{
     }
 
     @Override
-    public PostagemVenda fromDocument() {
+    public PostagemVenda fromDocument(Document doc) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

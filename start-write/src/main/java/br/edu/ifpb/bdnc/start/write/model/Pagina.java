@@ -7,24 +7,22 @@ package br.edu.ifpb.bdnc.start.write.model;
 
 import java.util.Arrays;
 import java.util.Objects;
-import javax.swing.text.Document;
+import org.bson.Document;
 
 /**
  *
  * @author Alann Rodrigues
  */
-public class Pagina implements ToDocument<Pagina>{
-    
+public class Pagina implements ToDocument<Pagina> {
+
     private String nome;
     private byte[] logomarca;
     private String rodape;
-    private Usuario usuario;
 
-    public Pagina(String nome, byte[] logomarca, String rodape, Usuario usuario) {
+    public Pagina(String nome, byte[] logomarca, String rodape) {
         this.nome = nome;
         this.logomarca = logomarca;
         this.rodape = rodape;
-        this.usuario = usuario;
     }
 
     public String getNome() {
@@ -50,14 +48,6 @@ public class Pagina implements ToDocument<Pagina>{
     public void setRodape(String rodape) {
         this.rodape = rodape;
     }
-    
-    public Usuario getUsuario(){
-        return usuario;
-    }
-    
-    public void setUsuario(Usuario usuario){
-        this.usuario = usuario;
-    }
 
     @Override
     public int hashCode() {
@@ -65,7 +55,6 @@ public class Pagina implements ToDocument<Pagina>{
         hash = 29 * hash + Objects.hashCode(this.nome);
         hash = 29 * hash + Arrays.hashCode(this.logomarca);
         hash = 29 * hash + Objects.hashCode(this.rodape);
-        hash = 29 * hash + Objects.hashCode(this.usuario);
         return hash;
     }
 
@@ -90,27 +79,30 @@ public class Pagina implements ToDocument<Pagina>{
         if (!Arrays.equals(this.logomarca, other.logomarca)) {
             return false;
         }
-        if (!Objects.equals(this.usuario, other.usuario)) {
-            return false;
-        }
+
         return true;
     }
 
     @Override
     public String toString() {
-        return "Pagina{" + "nome=" + nome + ", logomarca=" + logomarca + ", rodape=" + rodape + ", usuario=" + usuario + '}';
+        return "Pagina{" + "nome=" + nome + ", logomarca=" + logomarca + ", rodape=" + rodape + '}';
     }
-
-    
 
     @Override
     public Document toDocument() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Document doc = new Document();
+        doc.append("nome", nome);
+        doc.append("logomarca", logomarca);
+        doc.append("rodape", rodape);
+        return doc;
     }
 
     @Override
-    public Pagina fromDocument() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Pagina fromDocument(Document doc) {
+        nome = doc.getString("nome");
+        rodape = doc.getString("rodape");
+        logomarca = doc.get("logomarca", byte[].class);
+        return this;
     }
-    
+
 }

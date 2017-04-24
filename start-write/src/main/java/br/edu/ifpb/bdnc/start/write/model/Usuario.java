@@ -14,18 +14,30 @@ import java.util.Objects;
  */
 public class Usuario {
     
+    private int id;
     private String username;
     private Date birthDate;
     private String password;
     private String email;
     private String name;
+    
+    public Usuario(){}
 
-    public Usuario(String username, Date birthDate, String password, String email, String name) {
+    public Usuario(int id, String username, Date birthDate, String password, String email, String name) {
+        this.id = id;
         this.username = username;
         this.birthDate = birthDate;
         this.password = password;
         this.email = email;
         this.name = name;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getUsername() {
@@ -70,7 +82,13 @@ public class Usuario {
 
     @Override
     public int hashCode() {
-        int hash = 5;
+        int hash = 7;
+        hash = 47 * hash + this.id;
+        hash = 47 * hash + Objects.hashCode(this.username);
+        hash = 47 * hash + Objects.hashCode(this.birthDate);
+        hash = 47 * hash + Objects.hashCode(this.password);
+        hash = 47 * hash + Objects.hashCode(this.email);
+        hash = 47 * hash + Objects.hashCode(this.name);
         return hash;
     }
 
@@ -86,10 +104,22 @@ public class Usuario {
             return false;
         }
         final Usuario other = (Usuario) obj;
+        if (this.id != other.id) {
+            return false;
+        }
         if (!Objects.equals(this.username, other.username)) {
             return false;
         }
+        if (!Objects.equals(this.password, other.password)) {
+            return false;
+        }
         if (!Objects.equals(this.email, other.email)) {
+            return false;
+        }
+        if (!Objects.equals(this.name, other.name)) {
+            return false;
+        }
+        if (!Objects.equals(this.birthDate, other.birthDate)) {
             return false;
         }
         return true;
@@ -97,8 +127,7 @@ public class Usuario {
 
     @Override
     public String toString() {
-        return "Pessoa{" + "username=" + username + ", birthDate=" + birthDate +
-            ", password=" + password + ", email=" + email + ", name=" + name + '}';
+        return "Usuario{" + "id=" + id + ", username=" + username + ", birthDate=" + birthDate + ", password=" + password + ", email=" + email + ", name=" + name + '}';
     }
     
 }

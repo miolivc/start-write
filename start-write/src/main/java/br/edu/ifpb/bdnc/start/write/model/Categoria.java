@@ -6,7 +6,7 @@
 package br.edu.ifpb.bdnc.start.write.model;
 
 import java.util.Objects;
-import javax.swing.text.Document;
+import org.bson.Document;
 
 /**
  *
@@ -81,7 +81,7 @@ public class Categoria implements ToDocument<Categoria>  {
     }
 
     @Override
-    public Categoria fromDocument() {
+    public Categoria fromDocument(Document doc) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

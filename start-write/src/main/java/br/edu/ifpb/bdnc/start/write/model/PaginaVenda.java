@@ -3,10 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.edu.ifpb.bdnc.start.write.model.paginavenda;
+package br.edu.ifpb.bdnc.start.write.model;
 
-import br.edu.ifpb.bdnc.start.write.model.Pagina;
-import br.edu.ifpb.bdnc.start.write.model.Usuario;
 import java.util.ArrayList;
 import java.util.Objects;
 
@@ -18,8 +16,8 @@ public class PaginaVenda extends Pagina{
     
     private ArrayList<PostagemVenda> postagems;
 
-    public PaginaVenda(ArrayList<PostagemVenda> postagems, String nome, byte[] logomarca, String rodape, Usuario usuario) {
-        super(nome, logomarca, rodape, usuario);
+    public PaginaVenda(ArrayList<PostagemVenda> postagems, String nome, byte[] logomarca, String rodape) {
+        super(nome, logomarca, rodape);
         this.postagems = postagems;
     }
 
