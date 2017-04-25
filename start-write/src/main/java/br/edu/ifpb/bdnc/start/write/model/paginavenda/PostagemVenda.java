@@ -5,16 +5,14 @@
  */
 package br.edu.ifpb.bdnc.start.write.model.paginavenda;
 
-import br.edu.ifpb.bdnc.start.write.model.ToDocument;
 import java.util.Arrays;
 import java.util.Objects;
-import org.bson.Document;
 
 /**
  *
  * @author Alann Rodrigues
  */
-public class PostagemVenda implements ToDocument<PostagemVenda>{
+public class PostagemVenda{
     
     private String titulo;
     private String descricao;
@@ -133,19 +131,5 @@ public class PostagemVenda implements ToDocument<PostagemVenda>{
     public String toString() {
         return "PostagemVenda{" + "titulo=" + titulo + ", descricao=" + descricao + ", valor=" + valor + ", disponibilidade=" + disponibilidade + ", img=" + img + ", categoria=" + categoria + '}';
     }
-
-    @Override
-    public Document toDocument() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public PostagemVenda fromDocument(Document doc) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
-    
-
-    
     
 }

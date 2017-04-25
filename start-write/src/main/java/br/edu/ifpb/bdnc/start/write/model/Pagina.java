@@ -13,11 +13,13 @@ import org.bson.Document;
  *
  * @author Alann Rodrigues
  */
-public class Pagina implements ToDocument<Pagina> {
+public abstract class Pagina implements ToDocument<Pagina> {
 
     private String nome;
     private byte[] logomarca;
     private String rodape;
+    
+    public Pagina(){}
 
     public Pagina(String nome, byte[] logomarca, String rodape) {
         this.nome = nome;
@@ -87,22 +89,11 @@ public class Pagina implements ToDocument<Pagina> {
     public String toString() {
         return "Pagina{" + "nome=" + nome + ", logomarca=" + logomarca + ", rodape=" + rodape + '}';
     }
+    
+    @Override
+    public abstract Document toDocument();
 
     @Override
-    public Document toDocument() {
-        Document doc = new Document();
-        doc.append("nome", nome);
-        doc.append("logomarca", logomarca);
-        doc.append("rodape", rodape);
-        return doc;
-    }
-
-    @Override
-    public Pagina fromDocument(Document doc) {
-        nome = doc.getString("nome");
-        rodape = doc.getString("rodape");
-        logomarca = doc.get("logomarca", byte[].class);
-        return this;
-    }
+    public abstract Pagina fromDocument(Document doc);
 
 }

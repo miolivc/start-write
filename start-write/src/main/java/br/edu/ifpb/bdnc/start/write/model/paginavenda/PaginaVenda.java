@@ -8,6 +8,7 @@ package br.edu.ifpb.bdnc.start.write.model.paginavenda;
 import br.edu.ifpb.bdnc.start.write.model.Pagina;
 import java.util.ArrayList;
 import java.util.Objects;
+import org.bson.Document;
 
 /**
  *
@@ -15,25 +16,27 @@ import java.util.Objects;
  */
 public class PaginaVenda extends Pagina{
     
-    private ArrayList<PostagemVenda> postagems;
+    private ArrayList<PostagemVenda> postagens;
+    
+    public PaginaVenda(){}
 
-    public PaginaVenda(ArrayList<PostagemVenda> postagems, String nome, byte[] logomarca, String rodape) {
+    public PaginaVenda(ArrayList<PostagemVenda> postagens, String nome, byte[] logomarca, String rodape) {
         super(nome, logomarca, rodape);
-        this.postagems = postagems;
+        this.postagens = postagens;
     }
 
-    public ArrayList<PostagemVenda> getPostagems() {
-        return postagems;
+    public ArrayList<PostagemVenda> getPostagens() {
+        return postagens;
     }
 
-    public void setPostagems(ArrayList<PostagemVenda> postagems) {
-        this.postagems = postagems;
+    public void setPostagens(ArrayList<PostagemVenda> postagens) {
+        this.postagens = postagens;
     }
 
     @Override
     public int hashCode() {
         int hash = 5;
-        hash = 83 * hash + Objects.hashCode(this.postagems);
+        hash = 83 * hash + Objects.hashCode(this.postagens);
         return hash;
     }
 
@@ -49,7 +52,7 @@ public class PaginaVenda extends Pagina{
             return false;
         }
         final PaginaVenda other = (PaginaVenda) obj;
-        if (!Objects.equals(this.postagems, other.postagems)) {
+        if (!Objects.equals(this.postagens, other.postagens)) {
             return false;
         }
         return true;
@@ -57,6 +60,25 @@ public class PaginaVenda extends Pagina{
 
     @Override
     public String toString() {
-        return "PaginaVenda{" + "postagems=" + postagems + '}';
-    }    
+        return "PaginaVenda{" + "postagems=" + postagens + '}';
+    }   
+    
+    @Override
+    public Document toDocument(){
+        Document doc = new Document();
+        doc.append("nome", getNome());
+        doc.append("logomarca", getLogomarca());
+        doc.append("rodape", getRodape());
+        doc.append("postagens", getPostagens());
+        return doc;
+    }
+    
+    @Override
+    public Pagina fromDocument(Document doc) {
+        setNome(doc.getString("nome"));
+        setRodape(doc.getString("rodape"));
+        setLogomarca(doc.get("logomarca", byte[].class));
+        setPostagens(doc.get("postagens", PostagemVenda[].class));
+        return this;
+    }
 }

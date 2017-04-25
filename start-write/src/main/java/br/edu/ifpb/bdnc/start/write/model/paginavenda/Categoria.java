@@ -5,15 +5,13 @@
  */
 package br.edu.ifpb.bdnc.start.write.model.paginavenda;
 
-import br.edu.ifpb.bdnc.start.write.model.ToDocument;
 import java.util.Objects;
-import org.bson.Document;
 
 /**
  *
  * @author Alann Rodrigues
  */
-public class Categoria implements ToDocument<Categoria>  {
+public class Categoria{
     
     private String nome;
     private String descricao;
@@ -74,20 +72,6 @@ public class Categoria implements ToDocument<Categoria>  {
     @Override
     public String toString() {
         return "Categoria{" + "nome=" + nome + ", descricao=" + descricao + '}';
-    }
-
-    @Override
-    public Document toDocument() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public Categoria fromDocument(Document doc) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
-    
-    
-    
+    }    
     
 }

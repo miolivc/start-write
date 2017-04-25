@@ -6,6 +6,7 @@
 package br.edu.ifpb.bdnc.start.write.model.paginablog;
 
 import br.edu.ifpb.bdnc.start.write.model.Pagina;
+import org.bson.Document;
 
 
 /**
@@ -16,6 +17,16 @@ public class PaginaBlog extends Pagina{
     
     public PaginaBlog(String nome, byte[] logomarca, String rodape) {
         super(nome, logomarca, rodape);
+    }
+
+    @Override
+    public Document toDocument() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Pagina fromDocument(Document doc) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }
