@@ -12,7 +12,7 @@ import java.util.List;
  *
  * @author miolivc
  */
-public interface PessoaDao {
+public interface UsuarioDaoIf {
     
     public void add(Usuario pessoa);
     public void delete(String email);
