@@ -7,6 +7,7 @@ package br.edu.ifpb.bdnc.start.write.dao.postgres;
 
 import br.edu.ifpb.bdnc.start.write.dao.UsuarioDaoIf;
 import br.edu.ifpb.bdnc.start.write.model.Usuario;
+import java.sql.Connection;
 import java.util.List;
 
 /**
@@ -17,27 +18,27 @@ public class UsuarioDao implements UsuarioDaoIf {
 
     @Override
     public void add(Usuario pessoa) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
     }
 
     @Override
     public void delete(String email) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
     }
 
     @Override
     public List<Usuario> list() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return null;
     }
 
     @Override
     public Usuario find(String email) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return null;
     }
 
     @Override
     public void update(Usuario pessoa) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
     }
     
 }

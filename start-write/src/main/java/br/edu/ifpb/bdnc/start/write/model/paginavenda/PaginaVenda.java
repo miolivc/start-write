@@ -78,7 +78,7 @@ public class PaginaVenda extends Pagina{
         setNome(doc.getString("nome"));
         setRodape(doc.getString("rodape"));
         setLogomarca(doc.get("logomarca", byte[].class));
-        setPostagens(doc.get("postagens", PostagemVenda[].class));
+        setPostagens((ArrayList<PostagemVenda>) doc.get("postagens"));
         return this;
     }
 }
