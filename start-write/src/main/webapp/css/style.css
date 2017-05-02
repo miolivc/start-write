@@ -92,7 +92,7 @@ h2 {
     text-transform: uppercase;
 }
 
-input[type="text"], input[type="password"], input[type="email"], input[type="date"] {
+input {
     width: 84%;
     padding: 16px 10px 15px 60px;
     font-size: 14px;
@@ -105,6 +105,7 @@ input[type="text"], input[type="password"], input[type="email"], input[type="dat
 	border-radius:25px;
     font-family: 'Quicksand', sans-serif;
 }
+
 input[type="text"]{
 	background: url("../images/user.png") no-repeat 20px 12px;
 	background-size: 24px;
@@ -132,6 +133,20 @@ input[name='name']{
 input[type='date']{
     background: url("../images/birthDate.png") no-repeat 20px 12px;
     background-size: 24px;
+}
+
+input[name='new'] {
+	background: url("../images/write.png") no-repeat 20px 12px;
+	background-size: 24px;
+}
+
+input[name='list'] {
+	background: url("../images/list.png") no-repeat 20px 12px;
+	background-size: 24px;
+}
+
+input[type='button']{
+	font-size: 1.4em;
 }
 
 ul.agileinfotickwthree {
@@ -312,6 +327,10 @@ input[type="checkbox"] {
 .submit-w3l  input[type="submit"]:hover {
 	background:#fff;
 	color:#000;
+}
+
+.menu{
+	font-size: 1.4em;
 }
 
 /* pop-up-box-styling */
@@ -655,7 +674,7 @@ input[type="checkbox"] {
 		width: 70%;
 	}
 	.w3layoutscontaineragileits input[type="text"], .w3layoutscontaineragileits input[type="password"], .w3layoutscontaineragileits input[type="email"] {
-    
+
 		padding: 15px 53px;
 		width: 70%;
 	}
@@ -687,7 +706,7 @@ input[type="checkbox"] {
 	h2 {
 		font-size: 26px;
 	}
-	
+
 	input[type="submit"] {
 		font-size: 15px;
 		padding: 15px 40px;

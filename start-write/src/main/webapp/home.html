@@ -20,7 +20,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <!-- //Meta-Tags -->
 
-        <!-- Style --> 
+        <!-- Style -->
         <link rel="stylesheet" href="css/style.css" type="text/css" media="all">
 
         <!-- Fonts -->
@@ -36,15 +36,21 @@
             <div class="agileinfo-dot">
                 <img class="brand" src="images/logomarca.png" alt="Start-Write">
 
-                
-                
+                <div class="w3layoutscontaineragileits">
+                    <h2>Bem vindo(a), ${usuario.name}</h2>
+
+                    <input type="button" name="new" onclick="criarBlog()" value="Criar novo Blog"/>
+                    <input type="button" name="list" onclick="listarBlog()" action="index.html" value="Listar Blogs"/>
+
+                </div>
+
                 <div class="w3footeragile">
                     <p> &copy; 2017 | All Rights Reserved </p>
                 </div>
 
             </div>
         </div>
-        <script type="text/javascript" src="js/main.js"/>
+        <script src="./js/main.js"></script>
     </body>
     <!-- //Body -->
 </html>
