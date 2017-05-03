@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.edu.ifpb.bdnc.start.write.dao;
+package br.edu.ifpb.bdnc.start.write.dao.interfaces;
 
 import br.edu.ifpb.bdnc.start.write.model.Usuario;
 import java.util.List;
@@ -12,12 +12,12 @@ import java.util.List;
  *
  * @author miolivc
  */
-public interface UsuarioDaoIf {
+public interface UsuarioDao {
     
-    public void add(Usuario pessoa);
-    public void delete(String email);
-    public List<Usuario> list();
-    public Usuario find(String email);
-    public void update(Usuario pessoa);
+    void add(Usuario pessoa);
+    void delete(String email);
+    List<Usuario> list();
+    Usuario find(String email);
+    void update(Usuario pessoa);
     
 }

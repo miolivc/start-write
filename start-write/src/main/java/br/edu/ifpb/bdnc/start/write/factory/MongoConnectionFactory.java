@@ -18,9 +18,4 @@ public class MongoConnectionFactory {
     public static MongoClient getConnection(){
         return new MongoClient(new MongoClientURI("mongodb://localhost:27017"));
     }
-    
-    public static DB getDatabase(MongoClient mongoClient){
-        return mongoClient.getDB("start-write");
-    }
-    
 }

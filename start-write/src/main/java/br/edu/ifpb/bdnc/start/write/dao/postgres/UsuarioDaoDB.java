@@ -6,7 +6,7 @@
 package br.edu.ifpb.bdnc.start.write.dao.postgres;
 
 import br.edu.ifpb.bdnc.start.write.factory.PostgresConnectionFactory;
-import br.edu.ifpb.bdnc.start.write.dao.UsuarioDaoIf;
+import br.edu.ifpb.bdnc.start.write.dao.interfaces.UsuarioDao;
 import br.edu.ifpb.bdnc.start.write.model.Usuario;
 import java.sql.Connection;
 import java.sql.Date;
@@ -14,17 +14,16 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.time.LocalDate;
 import java.util.List;
 
 /**
  *
  * @author alann
  */
-public class UsuarioDao implements UsuarioDaoIf {
+public class UsuarioDaoDB implements UsuarioDao {
     private Connection conn = null;
 
-    public UsuarioDao() throws SQLException, ClassNotFoundException{
+    public UsuarioDaoDB() throws SQLException, ClassNotFoundException {
 	conn = PostgresConnectionFactory.getConnection();
     }
 
