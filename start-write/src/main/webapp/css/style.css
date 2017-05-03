@@ -92,7 +92,7 @@ h2 {
     text-transform: uppercase;
 }
 
-input {
+input, select, option {
     width: 84%;
     padding: 16px 10px 15px 60px;
     font-size: 14px;
@@ -104,6 +104,14 @@ input {
     color: #fff;
 	border-radius:25px;
     font-family: 'Quicksand', sans-serif;
+}
+
+select{
+    min-width: 100%;
+}
+
+option{
+    background: rgba(0,0,0,0.6) !important;
 }
 
 input[type="text"]{
