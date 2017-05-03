@@ -4,9 +4,6 @@
 	License: Creative Commons Attribution 3.0 Unported
 	License URL: http://creativecommons.org/licenses/by/3.0/
 -->
-
-
-
 <!DOCTYPE html>
 <html>
 
@@ -38,9 +35,10 @@
 
             <div class="w3layoutscontaineragileits">
                 <h2>Login</h2>
-                <form action="#" method="post">
-                    <input type="email" Name="Username" placeholder="EMAIL" required="true"/>
-                    <input type="password" Name="Password" placeholder="PASSWORD" required="true"/>
+                <form action="ControlePrincipal" method="post">
+                    <input type="text" Name="login" placeholder="E-MAIL/USERNAME" required>
+                    <input type="password" Name="password" placeholder="PASSWORD" required>
+                    <input type="hidden" value="Login" name="comando">
                     <div class="aitssendbuttonw3ls">
                         <input type="submit" value="Entrar">
                         <div class="clear"></div>
@@ -61,7 +59,7 @@
 
         </div>
     </div>
-    <script type="text/javascript" src="js/main.js"/>
+    <script type="text/javascript" src="js/main.js"/> </script>
 </body>
 <!-- //Body -->
 

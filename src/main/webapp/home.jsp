@@ -1,3 +1,4 @@
+
 <!--
 	Author: W3layouts
 	Author URL: http://w3layouts.com
@@ -9,6 +10,8 @@
 
 <!DOCTYPE html>
 <html>
+    
+    <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <!-- Head -->
     <head>

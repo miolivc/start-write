@@ -5,11 +5,15 @@
  */
 package br.edu.ifpb.bdnc.start.write.controle;
 
+import br.edu.ifpb.bdnc.start.write.dao.interfaces.UsuarioDao;
+import br.edu.ifpb.bdnc.start.write.dao.postgres.UsuarioDaoDB;
 import br.edu.ifpb.bdnc.start.write.model.Usuario;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.io.IOException;
+import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -17,7 +21,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Alann Rodrigues
  */
-public class Cadastro implements Comando {
+public class CadastroUsuario implements Comando {
 
     @Override
     public void executar(HttpServletRequest request, HttpServletResponse response) {
@@ -28,9 +32,9 @@ public class Cadastro implements Comando {
             String password = request.getParameter("password");
             String email = request.getParameter("email");
             String name = request.getParameter("name");
-            
-            DateFormat formatter = new SimpleDateFormat("MM/dd/yy");
-            Date date = (Date) formatter.parse(birthDate);
+
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+            LocalDate date = LocalDate.parse(birthDate, formatter);
 
             Usuario usuario = new Usuario();
             usuario.setBirthDate(date);
@@ -39,9 +43,13 @@ public class Cadastro implements Comando {
             usuario.setPassword(password);
             usuario.setUsername(username);
 
-        } catch (ParseException ex) {
+            UsuarioDao dao = new UsuarioDaoDB();
+            dao.add(usuario);
+            request.getSession();
+            request.getSession().setAttribute("usuario", usuario);
+            RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher("/index.html");
+            dispatcher.forward(request, response);
 
-        }
-
+        } catch (ClassNotFoundException | SQLException | ServletException | IOException ex) {}
     }
 }

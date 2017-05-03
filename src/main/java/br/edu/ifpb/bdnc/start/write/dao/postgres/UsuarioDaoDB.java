@@ -35,7 +35,10 @@ public class UsuarioDaoDB implements UsuarioDao {
             PreparedStatement stmt = conn.prepareStatement(sql);
             stmt.setInt(1, pessoa.getId());
             stmt.setString(2, pessoa.getName());
-            stmt.setDate(3, Date.valueOf(pessoa.getBirthDate().toString()));
+            stmt.setDate(3, Date.valueOf(pessoa.getBirthDate()));
+            stmt.setString(4, pessoa.getUsername());
+            stmt.setString(5, pessoa.getEmail());
+            stmt.setString(6, pessoa.getPassword());
             stmt.executeUpdate();
             stmt.close();
         } catch (SQLException ex) {
@@ -44,11 +47,11 @@ public class UsuarioDaoDB implements UsuarioDao {
     }
 
     @Override
-    public void delete(String email) {
+    public void delete(String pesquisa) {
         String sql = "DELETE FROM USUARIO WHERE EMAIL = ?";
         try {
             PreparedStatement stmt = conn.prepareStatement(sql);
-            stmt.setString(1, email);
+            stmt.setString(1, pesquisa);
             stmt.executeUpdate();
             stmt.close();
         } catch (SQLException ex) {
@@ -67,7 +70,7 @@ public class UsuarioDaoDB implements UsuarioDao {
                 Usuario user = new Usuario();
                 user.setId(rs.getInt("id"));
                 user.setName(rs.getString("name"));
-                user.setBirthDate(rs.getDate("birthDate"));
+                user.setBirthDate(rs.getDate("birthDate").toLocalDate());
                 user.setUsername(rs.getString("username"));
                 user.setEmail(rs.getString("email"));
                 user.setPassword(rs.getString("password"));
@@ -82,16 +85,18 @@ public class UsuarioDaoDB implements UsuarioDao {
     }
 
     @Override
-    public Usuario find(String email) {
-        Usuario user = null;
-        String sql = "SELECT * FROM USUARIO ";
+    public Usuario find(String pesquisa) {
+        Usuario user = new Usuario();
+        String sql = "SELECT * FROM USUARIO WHERE EMAIL = ? OR USERNAME = ?";
         try {
-            Statement stmt = conn.createStatement();
-            ResultSet rs = stmt.executeQuery(sql);
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            stmt.setString(1, pesquisa);
+            stmt.setString(2, pesquisa);
+            ResultSet rs = stmt.executeQuery();
             while(rs.next()){
                 user.setId(rs.getInt("id"));
                 user.setName(rs.getString("name"));
-                user.setBirthDate(rs.getDate("birthDate"));
+                user.setBirthDate(rs.getDate("birthDate").toLocalDate());
                 user.setUsername(rs.getString("username"));
                 user.setEmail(rs.getString("email"));
                 user.setPassword(rs.getString("password"));
@@ -112,6 +117,5 @@ public class UsuarioDaoDB implements UsuarioDao {
         } catch (Exception ex){
             System.err.println(ex.toString());
         }
-    }
-    
+    }    
 }

@@ -15,9 +15,9 @@ import java.util.List;
 public interface UsuarioDao {
     
     void add(Usuario pessoa);
-    void delete(String email);
+    void delete(String pesquisa);
     List<Usuario> list();
-    Usuario find(String email);
+    Usuario find(String pesquisa);
     void update(Usuario pessoa);
     
 }

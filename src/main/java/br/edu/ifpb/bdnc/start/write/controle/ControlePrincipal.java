@@ -19,7 +19,8 @@ public class ControlePrincipal extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
         String comando = request.getParameter("comando");
-        Comando novaAcao = (Comando) Class.forName(comando).newInstance();
+        String pacote = "br.edu.ifpb.bdnc.start.write.controle.";
+        Comando novaAcao = (Comando) Class.forName(pacote + comando).newInstance();
         novaAcao.executar(request, response);
         
     }

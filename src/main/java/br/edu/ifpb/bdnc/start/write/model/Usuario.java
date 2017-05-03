@@ -1,7 +1,7 @@
 
 package br.edu.ifpb.bdnc.start.write.model;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.Objects;
 
 
@@ -9,14 +9,14 @@ public class Usuario {
     
     private int id;
     private String username;
-    private Date birthDate;
+    private LocalDate birthDate;
     private String password;
     private String email;
     private String name;
     
     public Usuario(){}
 
-    public Usuario(int id, String username, Date birthDate, String password, String email, String name) {
+    public Usuario(int id, String username, LocalDate birthDate, String password, String email, String name) {
         this.id = id;
         this.username = username;
         this.birthDate = birthDate;
@@ -41,11 +41,11 @@ public class Usuario {
         this.username = username;
     }
 
-    public Date getBirthDate() {
+    public LocalDate getBirthDate() {
         return birthDate;
     }
 
-    public void setBirthDate(Date birthDate) {
+    public void setBirthDate(LocalDate birthDate) {
         this.birthDate = birthDate;
     }
 
