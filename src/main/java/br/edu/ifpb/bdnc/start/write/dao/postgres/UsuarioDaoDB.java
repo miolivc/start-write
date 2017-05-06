@@ -86,13 +86,16 @@ public class UsuarioDaoDB implements UsuarioDao {
 
     @Override
     public Usuario find(String pesquisa) {
-        Usuario user = new Usuario();
+        Usuario user = null;
         String sql = "SELECT * FROM USUARIO WHERE EMAIL = ? OR USERNAME = ?";
         try {
             PreparedStatement stmt = conn.prepareStatement(sql);
             stmt.setString(1, pesquisa);
             stmt.setString(2, pesquisa);
             ResultSet rs = stmt.executeQuery();
+            
+            user = new Usuario();
+            
             while(rs.next()){
                 user.setId(rs.getInt("id"));
                 user.setName(rs.getString("name"));
