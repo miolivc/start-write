@@ -41,7 +41,7 @@ public class Login implements Comando {
                 } 
             }
             caminho = "/index.html";
-            dispachar(request, response,caminho);
+            dispachar(request, response, caminho);
         } catch (ClassNotFoundException | SQLException | ServletException | IOException ex) {}
     }
 
