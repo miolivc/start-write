@@ -30,7 +30,7 @@ public class Login implements Comando {
             UsuarioDao dao = new UsuarioDaoDB();
             Usuario usuario = dao.find(login);
             
-            String caminho = " ";
+            String caminho;
 
             if (usuario.getEmail() != null) {
                 if (usuario.getPassword().equals(password)) {
