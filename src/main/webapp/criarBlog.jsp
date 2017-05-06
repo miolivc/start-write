@@ -40,7 +40,7 @@
                     <h2>Criar Blog</h2>
                     <form action="#" method="post">
 			<select name="tipoBlog">
-				<option value="" selected="true">SELECIONE O TIPO DE BLOG DESEJADO</option>
+				<option value="" selected>SELECIONE O TIPO DE BLOG DESEJADO</option>
 				<option value="blog">BLOG</option>
 				<option value="loja">E-COMMERCE</option>
 			</select>

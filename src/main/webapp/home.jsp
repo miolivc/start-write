@@ -42,8 +42,8 @@
                 <div class="w3layoutscontaineragileits">
                     <h2>Bem vindo(a), ${usuario.name}</h2>
 
-                    <input type="button" name="new" onclick="criarBlog()" value="Criar novo Blog"/>
-                    <input type="button" name="list" onclick="listarBlog()" action="index.html" value="Listar Blogs"/>
+                    <input type="button" name="CriarBlog" value="Criar novo Blog"/>
+                    <input type="button" name="ListarBlogs" value="Listar Blogs"/>
 
                 </div>
 
@@ -53,7 +53,6 @@
 
             </div>
         </div>
-        <script src="./js/main.js"></script>
     </body>
     <!-- //Body -->
 </html>

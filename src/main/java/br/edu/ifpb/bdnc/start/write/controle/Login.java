@@ -10,8 +10,6 @@ import br.edu.ifpb.bdnc.start.write.dao.postgres.UsuarioDaoDB;
 import br.edu.ifpb.bdnc.start.write.model.Usuario;
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -26,6 +24,7 @@ public class Login implements Comando {
     @Override
     public void executar(HttpServletRequest request, HttpServletResponse response) {
         try {
+            RequestDispatcher dispatcher = null; 
             String login = request.getParameter("login");
             String password = request.getParameter("password");
 
@@ -34,9 +33,9 @@ public class Login implements Comando {
             if (usuario != null) {
                 request.getSession();
                 request.getSession().setAttribute("usuario", usuario);
-                RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher("/home.jsp");
+                dispatcher = request.getServletContext().getRequestDispatcher("/home.jsp");
                 dispatcher.forward(request, response);
-            }
+            } 
         } catch (ClassNotFoundException | SQLException | ServletException | IOException ex) {
         }
     }
