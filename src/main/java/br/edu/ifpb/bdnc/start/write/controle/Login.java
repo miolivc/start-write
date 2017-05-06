@@ -29,23 +29,24 @@ public class Login implements Comando {
 
             UsuarioDao dao = new UsuarioDaoDB();
             Usuario usuario = dao.find(login);
-            System.out.println(usuario);
+            
+            String caminho = " ";
 
             if (usuario.getEmail() != null) {
                 if (usuario.getPassword().equals(password)) {
                     request.getSession();
                     request.getSession().setAttribute("usuario", usuario);
-                    RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher("/home.jsp");
-                    dispatcher.forward(request, response);
+                    caminho = "/home.jsp";
+                    dispachar(request, response,caminho);
                 } 
             }
-            erroLogin(request, response);
-        } catch (ClassNotFoundException | SQLException | ServletException | IOException ex) {
-        }
+            caminho = "/index.html";
+            dispachar(request, response,caminho);
+        } catch (ClassNotFoundException | SQLException | ServletException | IOException ex) {}
     }
 
-    public void erroLogin(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher("/index.html");
+    public void dispachar(HttpServletRequest request, HttpServletResponse response, String caminho) throws ServletException, IOException {
+        RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher(caminho);
         dispatcher.forward(request, response);
     }
 }
