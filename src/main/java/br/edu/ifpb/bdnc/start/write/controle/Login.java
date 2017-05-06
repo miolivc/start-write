@@ -24,19 +24,28 @@ public class Login implements Comando {
     @Override
     public void executar(HttpServletRequest request, HttpServletResponse response) {
         try {
-            RequestDispatcher dispatcher = null; 
             String login = request.getParameter("login");
             String password = request.getParameter("password");
 
             UsuarioDao dao = new UsuarioDaoDB();
             Usuario usuario = dao.find(login);
-            if (usuario != null) {
-                request.getSession();
-                request.getSession().setAttribute("usuario", usuario);
-                dispatcher = request.getServletContext().getRequestDispatcher("/home.jsp");
-                dispatcher.forward(request, response);
-            } 
+            System.out.println(usuario);
+
+            if (usuario.getEmail() != null) {
+                if (usuario.getPassword().equals(password)) {
+                    request.getSession();
+                    request.getSession().setAttribute("usuario", usuario);
+                    RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher("/home.jsp");
+                    dispatcher.forward(request, response);
+                } 
+            }
+            erroLogin(request, response);
         } catch (ClassNotFoundException | SQLException | ServletException | IOException ex) {
         }
+    }
+
+    public void erroLogin(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher("/index.html");
+        dispatcher.forward(request, response);
     }
 }
