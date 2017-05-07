@@ -32,7 +32,7 @@ public class CriarBlog implements Comando {
             String rodape = request.getParameter("rodape");
 
             PaginaVenda pagina = null;
-
+            
             if (tipoBlog.equals("loja")) {
 
                 pagina = new PaginaVenda();

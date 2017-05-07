@@ -38,7 +38,7 @@
 
                 <div class="w3layoutscontaineragileits">
                     <h2>Criar Blog</h2>
-                    <form action="ControlePrincipal" method="post" enctype="multipart/form-data">
+                    <form enctype="multipart/form-data" action="ControlePrincipal" method="post">
 			<select name="tipoBlog">
 				<option value="" selected>SELECIONE O TIPO DE BLOG DESEJADO</option>
 				<option value="blog">BLOG</option>
