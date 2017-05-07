@@ -29,9 +29,6 @@ public class CriarBlog implements Comando {
     public void executar(HttpServletRequest request, HttpServletResponse response) {
 
         try {
-            RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher("/criarBlog.jsp");
-            dispatcher.include(request, response);
-
             String nome = request.getParameter("nome");
             String tipoBlog = request.getParameter("tipoBlog");
             String rodape = request.getParameter("rodape");
@@ -58,7 +55,7 @@ public class CriarBlog implements Comando {
 
             request.setAttribute("blog", pagina);
 
-            dispatcher = request.getServletContext().getRequestDispatcher("/listarPostagens.jsp");
+            RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher("/home.jsp");
             dispatcher.forward(request, response);
 
         } catch (ServletException | IOException ex) {
