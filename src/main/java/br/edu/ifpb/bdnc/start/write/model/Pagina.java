@@ -5,6 +5,7 @@
  */
 package br.edu.ifpb.bdnc.start.write.model;
 
+import java.io.File;
 import java.util.Arrays;
 import java.util.Objects;
 import org.bson.Document;
@@ -16,12 +17,12 @@ import org.bson.Document;
 public abstract class Pagina implements ToDocument<Pagina> {
 
     private String nome;
-    private byte[] logomarca;
+    private File logomarca;
     private String rodape;
     
     public Pagina(){}
 
-    public Pagina(String nome, byte[] logomarca, String rodape) {
+    public Pagina(String nome, File logomarca, String rodape) {
         this.nome = nome;
         this.logomarca = logomarca;
         this.rodape = rodape;
@@ -35,11 +36,11 @@ public abstract class Pagina implements ToDocument<Pagina> {
         this.nome = nome;
     }
 
-    public byte[] getLogomarca() {
+    public File getLogomarca() {
         return logomarca;
     }
 
-    public void setLogomarca(byte[] logomarca) {
+    public void setLogomarca(File logomarca) {
         this.logomarca = logomarca;
     }
 
@@ -53,10 +54,10 @@ public abstract class Pagina implements ToDocument<Pagina> {
 
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 29 * hash + Objects.hashCode(this.nome);
-        hash = 29 * hash + Arrays.hashCode(this.logomarca);
-        hash = 29 * hash + Objects.hashCode(this.rodape);
+        int hash = 7;
+        hash = 59 * hash + Objects.hashCode(this.nome);
+        hash = 59 * hash + Objects.hashCode(this.logomarca);
+        hash = 59 * hash + Objects.hashCode(this.rodape);
         return hash;
     }
 
@@ -78,12 +79,12 @@ public abstract class Pagina implements ToDocument<Pagina> {
         if (!Objects.equals(this.rodape, other.rodape)) {
             return false;
         }
-        if (!Arrays.equals(this.logomarca, other.logomarca)) {
+        if (!Objects.equals(this.logomarca, other.logomarca)) {
             return false;
         }
-
         return true;
     }
+
 
     @Override
     public String toString() {
