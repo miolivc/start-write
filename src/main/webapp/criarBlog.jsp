@@ -47,6 +47,7 @@
                         <input type="text" Name="nome" placeholder="DIGITE O NOME DO BLOG" required/>
                         <input type="file" Name="logomarca" placeholder="INSIRA A LOGOMARCA DO BLOG"/>
                         <input type="text" Name="rodape" placeholder="DIGITE O TEXTO DE RODAPÉ"/>
+                        <input type="hidden" value="CriarBlog" name="comando">
                         <div class="aitssendbuttonw3ls">
                             <input type="submit" value="Salvar Blog">
                             <div class="clear"></div>
