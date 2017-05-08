@@ -41,7 +41,7 @@
 
                     <h3>Seus Blogs</h3>
                     
-                    <c:forEach var="pagina" items="${listaPaginas.nome}">
+                    <c:forEach var="pagina" items="${listaPaginas}">
                         <div>
                             <p>${pagina.nome}</p>
                             <a href="#">Visualizar</a>

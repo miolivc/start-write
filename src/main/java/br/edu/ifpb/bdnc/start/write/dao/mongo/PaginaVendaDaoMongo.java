@@ -7,12 +7,12 @@ package br.edu.ifpb.bdnc.start.write.dao.mongo;
 
 import br.edu.ifpb.bdnc.start.write.dao.interfaces.PaginaVendaDao;
 import br.edu.ifpb.bdnc.start.write.factory.MongoConnectionFactory;
+import br.edu.ifpb.bdnc.start.write.model.Pagina;
 import br.edu.ifpb.bdnc.start.write.model.paginavenda.PaginaVenda;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoCursor;
 import static com.mongodb.client.model.Filters.eq;
 import java.util.ArrayList;
-import java.util.List;
 import org.bson.Document;
 
 /**
@@ -20,6 +20,7 @@ import org.bson.Document;
  * @author miolivc
  */
 public class PaginaVendaDaoMongo implements PaginaVendaDao {
+
     MongoCollection database = null;
 
     public PaginaVendaDaoMongo() {
@@ -29,14 +30,15 @@ public class PaginaVendaDaoMongo implements PaginaVendaDao {
     }
 
     @Override
-    public List<PaginaVenda> get(String dono) {
-        List<PaginaVenda> paginas = new  ArrayList<>();
+    public ArrayList<Pagina> get(String dono){
+        ArrayList<Pagina> paginas = new ArrayList();
         MongoCursor cursor = database.find(eq("dono", dono)).iterator();
-        while(cursor.hasNext()){
+        while (cursor.hasNext()) {
+            Document doc = (Document) cursor.next();
             PaginaVenda pagina = new PaginaVenda();
-            pagina.fromDocument((Document) cursor.next());
-            paginas.add(pagina);
+            paginas.add(pagina.fromDocument(doc));
         }
+        System.out.println(paginas);
         return paginas;
     }
 
@@ -48,5 +50,5 @@ public class PaginaVendaDaoMongo implements PaginaVendaDao {
     @Override
     public void delete(int id) {
         database.findOneAndDelete(eq("_id", id));
-    }    
+    }
 }

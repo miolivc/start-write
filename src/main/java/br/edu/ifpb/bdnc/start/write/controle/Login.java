@@ -9,8 +9,8 @@ import br.edu.ifpb.bdnc.start.write.dao.interfaces.PaginaVendaDao;
 import br.edu.ifpb.bdnc.start.write.dao.interfaces.UsuarioDao;
 import br.edu.ifpb.bdnc.start.write.dao.mongo.PaginaVendaDaoMongo;
 import br.edu.ifpb.bdnc.start.write.dao.postgres.UsuarioDaoDB;
+import br.edu.ifpb.bdnc.start.write.model.Pagina;
 import br.edu.ifpb.bdnc.start.write.model.Usuario;
-import br.edu.ifpb.bdnc.start.write.model.paginavenda.PaginaVenda;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -40,7 +40,9 @@ public class Login implements Comando {
                 if (usuario.getPassword().equals(password)) {
                     
                     PaginaVendaDao paginaDao = new PaginaVendaDaoMongo();
-                    ArrayList<PaginaVenda> listaPaginas = (ArrayList<PaginaVenda>) paginaDao.get(usuario.getEmail());
+                    ArrayList<Pagina> listaPaginas = (ArrayList<Pagina>) paginaDao.get(usuario.getEmail());
+                    
+                    System.out.println("aparecendo aqui" + listaPaginas.toString());
                     
                     request.getSession();
                     request.getSession().setAttribute("usuario", usuario);

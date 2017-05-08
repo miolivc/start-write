@@ -60,7 +60,7 @@ public class PaginaVenda extends Pagina{
 
     @Override
     public String toString() {
-        return "PaginaVenda{" + "postagems=" + postagens + '}';
+        return "PaginaVenda{" + super.toString() + "postagens=" + postagens + '}';
     }   
     
     @Override
@@ -75,12 +75,14 @@ public class PaginaVenda extends Pagina{
     }
     
     @Override
-    public Pagina fromDocument(Document doc) {
-        setNome(doc.getString("nome"));
-        setRodape(doc.getString("rodape"));
-        setLogomarca(doc.getString("logomarca"));
-        setPostagens((ArrayList<PostagemVenda>) doc.get("postagens"));
-        setDono(doc.getString("dono"));
-        return this;
+    public PaginaVenda fromDocument(Document doc) {
+        PaginaVenda pagina = new PaginaVenda();
+        pagina.setNome(doc.getString("nome"));
+        pagina.setRodape(doc.getString("rodape"));
+        pagina.setLogomarca(doc.getString("logomarca"));
+        pagina.setPostagens((ArrayList<PostagemVenda>) doc.get("postagens"));
+        pagina.setDono(doc.getString("dono"));
+        System.out.println(pagina.toString());
+        return pagina;
     }
 }

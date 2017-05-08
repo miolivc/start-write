@@ -5,8 +5,8 @@
  */
 package br.edu.ifpb.bdnc.start.write.dao.interfaces;
 
-import br.edu.ifpb.bdnc.start.write.model.paginavenda.PaginaVenda;
-import java.util.List;
+import br.edu.ifpb.bdnc.start.write.model.Pagina;
+import java.util.ArrayList;
 import org.bson.Document;
 
 /**
@@ -15,8 +15,8 @@ import org.bson.Document;
  */
 public interface PaginaVendaDao {
     
-    void add(Document document);
+    void add(Document doc);
     void delete(int id);
-    List<PaginaVenda> get(String dono);
+    ArrayList<Pagina> get(String dono);
     
 }

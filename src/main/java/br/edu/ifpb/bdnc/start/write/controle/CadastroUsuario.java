@@ -45,8 +45,6 @@ public class CadastroUsuario implements Comando {
 
             UsuarioDao dao = new UsuarioDaoDB();
             dao.add(usuario);
-            request.getSession();
-            request.getSession().setAttribute("usuario", usuario);
             RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher("/index.html");
             dispatcher.forward(request, response);
 
