@@ -6,7 +6,8 @@
         License URL: http://creativecommons.org/licenses/by/3.0/
 -->
 
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <!-- Head -->
@@ -40,16 +41,9 @@
 
                     <h3>Seus Blogs</h3>
 
-                    <c:forEach var="pagina" items="${listaPaginas}">
-                        <div>
-                            <p>${pagina.nome}</p>
-                            <a href="#">Visualizar</a>
-                            <a href="">Editar</a>
-                            <a href="#">Remover</a>
-                        </div>
+                    <c:forEach var="pagina" items="${listaPaginas}"> 
+                        
                     </c:forEach>
-
-                </div>
 
                 <div class="w3footeragile">
                     <p> &copy; 2017 | All Rights Reserved </p>
