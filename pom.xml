@@ -40,17 +40,22 @@
             <version>1.1.2</version>
         </dependency>
         
+        <!-- https://mvnrepository.com/artifact/javax.servlet.jsp.jstl/jstl-api -->
         <dependency>
-            <groupId>jstl</groupId>
-            <artifactId>jstl</artifactId>
+            <groupId>javax.servlet.jsp.jstl</groupId>
+            <artifactId>jstl-api</artifactId>
             <version>1.2</version>
         </dependency>
+
         
+        <!-- https://mvnrepository.com/artifact/org.glassfish.web/jstl-impl -->
         <dependency>
             <groupId>org.glassfish.web</groupId>
             <artifactId>jstl-impl</artifactId>
             <version>1.2</version>
         </dependency>
+
+
         
     </dependencies>
 

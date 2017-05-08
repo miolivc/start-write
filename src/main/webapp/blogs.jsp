@@ -1,15 +1,15 @@
 
 <!--
-	Author: W3layouts
-	Author URL: http://w3layouts.com
-	License: Creative Commons Attribution 3.0 Unported
-	License URL: http://creativecommons.org/licenses/by/3.0/
+        Author: W3layouts
+        Author URL: http://w3layouts.com
+        License: Creative Commons Attribution 3.0 Unported
+        License URL: http://creativecommons.org/licenses/by/3.0/
 -->
 
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
-<!-- Head -->
+    <!-- Head -->
     <head>
 
         <title>start-write</title>
@@ -27,7 +27,7 @@
         <!-- //Fonts -->
 
     </head>
-<!-- //Head -->
+    <!-- //Head -->
 
     <!-- Body -->
     <body>
@@ -39,7 +39,7 @@
                     <h2>Bem vindo(a), ${usuario.name}</h2>
 
                     <h3>Seus Blogs</h3>
-                    
+
                     <c:forEach var="pagina" items="${listaPaginas}">
                         <div>
                             <p>${pagina.nome}</p>
