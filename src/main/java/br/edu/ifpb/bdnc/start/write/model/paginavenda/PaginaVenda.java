@@ -21,7 +21,7 @@ public class PaginaVenda extends Pagina{
     
     public PaginaVenda(){}
 
-    public PaginaVenda(ArrayList<PostagemVenda> postagens, String nome, File logomarca, String rodape) {
+    public PaginaVenda(ArrayList<PostagemVenda> postagens, String nome, String logomarca, String rodape) {
         super(nome, logomarca, rodape);
         this.postagens = postagens;
     }
@@ -78,7 +78,7 @@ public class PaginaVenda extends Pagina{
     public Pagina fromDocument(Document doc) {
         setNome(doc.getString("nome"));
         setRodape(doc.getString("rodape"));
-        setLogomarca(doc.get("logomarca", File.class));
+        setLogomarca(doc.get("logomarca", String.class));
         setPostagens((ArrayList<PostagemVenda>) doc.get("postagens"));
         return this;
     }

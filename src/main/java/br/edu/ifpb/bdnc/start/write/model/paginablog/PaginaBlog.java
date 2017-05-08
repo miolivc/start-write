@@ -16,7 +16,7 @@ import org.bson.Document;
  */
 public class PaginaBlog extends Pagina{
     
-    public PaginaBlog(String nome, File logomarca, String rodape) {
+    public PaginaBlog(String nome, String logomarca, String rodape) {
         super(nome, logomarca, rodape);
     }
 
