@@ -13,7 +13,7 @@
 -->
 
 
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 
@@ -47,6 +47,16 @@
                     <!-- Fazer foreach para postagens do atributo blog q foi passado na requisição-->
                     <!-- Colocar botão de adicionar postagem -->
                     
+                    <h2>${pagina.nome}</h2>
+                    
+                    <c:forEach var="postagem" items="${pagina.postagens}">
+                        <div>
+                            <p>${postagem.titulo}</p>
+                            <a href="#">Visualizar</a>
+                            <a href="">Editar</a>
+                            <a href="#">Remover</a>
+                        </div>
+                    </c:forEach>
                     
                 </div>
                 
