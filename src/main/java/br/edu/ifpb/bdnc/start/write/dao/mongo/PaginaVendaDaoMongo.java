@@ -7,9 +7,12 @@ package br.edu.ifpb.bdnc.start.write.dao.mongo;
 
 import br.edu.ifpb.bdnc.start.write.dao.interfaces.PaginaVendaDao;
 import br.edu.ifpb.bdnc.start.write.factory.MongoConnectionFactory;
+import br.edu.ifpb.bdnc.start.write.model.paginavenda.PaginaVenda;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoCursor;
 import static com.mongodb.client.model.Filters.eq;
+import java.util.ArrayList;
+import java.util.List;
 import org.bson.Document;
 
 /**
@@ -26,13 +29,15 @@ public class PaginaVendaDaoMongo implements PaginaVendaDao {
     }
 
     @Override
-    public Document get(int id) {
-        Document document = null;
-        MongoCursor cursor = database.find(eq("_id", id)).iterator();
+    public List<PaginaVenda> get(String dono) {
+        List<PaginaVenda> paginas = new  ArrayList<>();
+        MongoCursor cursor = database.find(eq("dono", dono)).iterator();
         while(cursor.hasNext()){
-            document = (Document) cursor.next();
+            PaginaVenda pagina = new PaginaVenda();
+            pagina.fromDocument((Document) cursor.next());
+            paginas.add(pagina);
         }
-        return document;
+        return paginas;
     }
 
     @Override
