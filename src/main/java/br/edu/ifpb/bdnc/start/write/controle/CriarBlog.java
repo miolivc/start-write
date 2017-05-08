@@ -32,16 +32,19 @@ public class CriarBlog implements Comando {
             String rodape = request.getParameter("rodape");
 
             PaginaVenda pagina = null;
-            
-            if (tipoBlog.equals("loja")) {
 
+            if (tipoBlog.equals("loja")) {
+                String teste = "C:\\Users\\Alann Rodrigues\\Documents\\GitHub\\start-write\\src\\main\\webapp";
                 pagina = new PaginaVenda();
                 pagina.setNome(nome);
                 pagina.setRodape(rodape);
                 List<Part> lista = (List) request.getParts();
                 for (Part p : lista) {
                     if (p.getName().equals("logomarca")) {
-                        File file = new File(p.getSubmittedFileName());
+                        String caminho = teste + File.separator + "img-logos" + File.separator + p.getSubmittedFileName();
+                        p.write(caminho);
+                        pagina.setLogomarca(caminho);
+                        pagina.setDono((String) request.getSession().getAttribute("dono"));
                         break;
                     }
                 }

@@ -5,11 +5,15 @@
  */
 package br.edu.ifpb.bdnc.start.write.controle;
 
+import br.edu.ifpb.bdnc.start.write.dao.interfaces.PaginaVendaDao;
 import br.edu.ifpb.bdnc.start.write.dao.interfaces.UsuarioDao;
+import br.edu.ifpb.bdnc.start.write.dao.mongo.PaginaVendaDaoMongo;
 import br.edu.ifpb.bdnc.start.write.dao.postgres.UsuarioDaoDB;
 import br.edu.ifpb.bdnc.start.write.model.Usuario;
+import br.edu.ifpb.bdnc.start.write.model.paginavenda.PaginaVenda;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -34,8 +38,13 @@ public class Login implements Comando {
 
             if (usuario.getEmail() != null) {
                 if (usuario.getPassword().equals(password)) {
+                    
+                    PaginaVendaDao paginaDao = new PaginaVendaDaoMongo();
+                    ArrayList<PaginaVenda> listaPaginas = (ArrayList<PaginaVenda>) paginaDao.get(usuario.getEmail());
+                    
                     request.getSession();
                     request.getSession().setAttribute("usuario", usuario);
+                    request.getSession().setAttribute("listaPaginas", listaPaginas);
                     caminho = "/home.jsp";
                     dispachar(request, response,caminho);
                 } 
