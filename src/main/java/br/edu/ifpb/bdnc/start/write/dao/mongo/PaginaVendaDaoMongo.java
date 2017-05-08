@@ -22,7 +22,7 @@ public class PaginaVendaDaoMongo implements PaginaVendaDao {
     public PaginaVendaDaoMongo() {
         database = MongoConnectionFactory.getConnection()
                 .getDatabase("start-write").
-                getCollection("pagina-venda");
+                getCollection("paginaVenda");
     }
 
     @Override

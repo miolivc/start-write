@@ -13,9 +13,9 @@ function hideURLbar(){
 }
 
 function criarBlog(){
-    window.location.href = "criarBlog.html";
+    window.location.href = "criarBlog.jsp";
 }
 
-function listarBlog(){
-    window.location.href = "blogs.html";
+function listarBlogs(){
+    window.location.href = "blogs.jsp";
 }

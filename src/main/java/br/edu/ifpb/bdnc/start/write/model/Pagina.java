@@ -6,7 +6,6 @@
 package br.edu.ifpb.bdnc.start.write.model;
 
 import java.io.File;
-import java.util.Arrays;
 import java.util.Objects;
 import org.bson.Document;
 
@@ -17,12 +16,12 @@ import org.bson.Document;
 public abstract class Pagina implements ToDocument<Pagina> {
 
     private String nome;
-    private File logomarca;
+    private String logomarca;
     private String rodape;
     
     public Pagina(){}
 
-    public Pagina(String nome, File logomarca, String rodape) {
+    public Pagina(String nome, String logomarca, String rodape) {
         this.nome = nome;
         this.logomarca = logomarca;
         this.rodape = rodape;
@@ -36,11 +35,11 @@ public abstract class Pagina implements ToDocument<Pagina> {
         this.nome = nome;
     }
 
-    public File getLogomarca() {
+    public String getLogomarca() {
         return logomarca;
     }
 
-    public void setLogomarca(File logomarca) {
+    public void setLogomarca(String logomarca) {
         this.logomarca = logomarca;
     }
 

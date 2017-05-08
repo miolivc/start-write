@@ -10,9 +10,6 @@
 
 <!DOCTYPE html>
 <html>
-    
-    <%@page contentType="text/html" pageEncoding="UTF-8"%>
-
 <!-- Head -->
     <head>
 
@@ -42,8 +39,8 @@
                 <div class="w3layoutscontaineragileits">
                     <h2>Bem vindo(a), ${usuario.name}</h2>
 
-                    <button type="submit" name="comando" value="CriarBlog">Criar Novo Blog</button>
-                    <button type="submit" name="comando" value="ListarBlogs">Ver Blogs Existentes</button>
+                    <input type="button" onclick="criarBlog()" value="Criar um novo Blog"/>
+                    <button type="submit" onclick="listarBlogs()" value="Ver Blogs existentes"/>
 
                 </div>
 
@@ -53,6 +50,7 @@
 
             </div>
         </div>
+        <script type="text/javascript" src="js/main.js"></script>
     </body>
     <!-- //Body -->
 </html>
