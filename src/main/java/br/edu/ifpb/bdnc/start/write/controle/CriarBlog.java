@@ -7,10 +7,12 @@ package br.edu.ifpb.bdnc.start.write.controle;
 
 import br.edu.ifpb.bdnc.start.write.dao.interfaces.PaginaVendaDao;
 import br.edu.ifpb.bdnc.start.write.dao.mongo.PaginaVendaDaoMongo;
+import br.edu.ifpb.bdnc.start.write.model.Pagina;
 import br.edu.ifpb.bdnc.start.write.model.Usuario;
 import br.edu.ifpb.bdnc.start.write.model.paginavenda.PaginaVenda;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -53,6 +55,9 @@ public class CriarBlog implements Comando {
 
                 PaginaVendaDao dao = new PaginaVendaDaoMongo();
                 dao.add(pagina.toDocument());
+                ArrayList<Pagina> listaPaginas = (ArrayList<Pagina>) request.getSession().getAttribute("listaPaginas");
+                listaPaginas.add(pagina);
+                request.getSession().setAttribute("listaPaginas", listaPaginas);
             }
 
             request.setAttribute("blog", pagina);
