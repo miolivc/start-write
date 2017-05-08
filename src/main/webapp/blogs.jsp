@@ -41,11 +41,11 @@
 
                     <h3>Seus Blogs</h3>
                     
-                    <c:forEach var="contato" items="${usuario.blogs}">
+                    <c:forEach var="pagina" items="${listaPaginas.nome}">
                         <div>
-                            <p>${blog.nome}</p>
+                            <p>${pagina.nome}</p>
                             <a href="#">Visualizar</a>
-                            <a href="#">Editar</a>
+                            <a href="">Editar</a>
                             <a href="#">Remover</a>
                         </div>
                     </c:forEach>
