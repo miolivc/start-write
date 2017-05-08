@@ -1,23 +1,16 @@
-<%-- 
-    Document   : listarPostagens
-    Created on : 06/05/2017, 09:21:32
-    Author     : miolivc
---%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!--
-	Author: W3layouts
-	Author URL: http://w3layouts.com
-	License: Creative Commons Attribution 3.0 Unported
-	License URL: http://creativecommons.org/licenses/by/3.0/
+        Author: W3layouts
+        Author URL: http://w3layouts.com
+        License: Creative Commons Attribution 3.0 Unported
+        License URL: http://creativecommons.org/licenses/by/3.0/
 -->
 
-
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-
-<!-- Head -->
+    <!-- Head -->
     <head>
 
         <title>start-write</title>
@@ -27,7 +20,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <!-- //Meta-Tags -->
 
-        <!-- Style --> 
+        <!-- Style -->
         <link rel="stylesheet" href="css/style.css" type="text/css" media="all">
 
         <!-- Fonts -->
@@ -35,7 +28,7 @@
         <!-- //Fonts -->
 
     </head>
-<!-- //Head -->
+    <!-- //Head -->
 
     <!-- Body -->
     <body>
@@ -44,30 +37,25 @@
                 <img class="brand" src="images/logomarca.png" alt="Start-Write">
 
                 <div class="w3layoutscontaineragileits">
-                    <!-- Fazer foreach para postagens do atributo blog q foi passado na requisição-->
-                    <!-- Colocar botão de adicionar postagem -->
-                    
-                    <h2>${pagina.nome}</h2>
-                    
-                    <c:forEach var="postagem" items="${pagina.postagens}">
+                    <h2>Bem vindo(a), ${usuario.name}</h2>
+
+                    <h3>Seus Blogs</h3>
+
+                    <c:forEach var="postagem" items="${pagina.postagens}"> 
                         <div>
                             <p>${postagem.titulo}</p>
                             <a href="#">Visualizar</a>
-                            <a href="">Editar</a>
+                            <a href="#">Editar</a>
                             <a href="#">Remover</a>
-                        </div>
                     </c:forEach>
-                    
-                </div>
-                
+
                 <div class="w3footeragile">
                     <p> &copy; 2017 | All Rights Reserved </p>
                 </div>
 
             </div>
         </div>
-        <script type="text/javascript" src="js/main.js"> </script>
+        <script type="text/javascript" src="js/main.js"></script>
     </body>
     <!-- //Body -->
-
 </html>

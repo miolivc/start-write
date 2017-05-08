@@ -42,7 +42,11 @@
                     <h3>Seus Blogs</h3>
 
                     <c:forEach var="pagina" items="${listaPaginas}"> 
-                        
+                        <div>
+                            <p>${pagina.nome}</p>
+                            <a href="#">Visualizar</a>
+                            <a href="#">Editar</a>
+                            <a href="#">Remover</a>
                     </c:forEach>
 
                 <div class="w3footeragile">
