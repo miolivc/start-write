@@ -42,7 +42,6 @@ public class CriarBlog implements Comando {
                 for (Part p : lista) {
                     if (p.getName().equals("logomarca")) {
                         File file = new File(p.getSubmittedFileName());
-                        pagina.setLogomarca(file);
                         break;
                     }
                 }

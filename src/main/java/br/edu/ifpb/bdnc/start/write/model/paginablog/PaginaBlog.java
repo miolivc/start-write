@@ -6,7 +6,6 @@
 package br.edu.ifpb.bdnc.start.write.model.paginablog;
 
 import br.edu.ifpb.bdnc.start.write.model.Pagina;
-import java.io.File;
 import org.bson.Document;
 
 
@@ -16,8 +15,8 @@ import org.bson.Document;
  */
 public class PaginaBlog extends Pagina{
     
-    public PaginaBlog(String nome, String logomarca, String rodape) {
-        super(nome, logomarca, rodape);
+    public PaginaBlog(String nome, String logomarca, String rodape,String dono) {
+        super(nome, logomarca, rodape, dono);
     }
 
     @Override

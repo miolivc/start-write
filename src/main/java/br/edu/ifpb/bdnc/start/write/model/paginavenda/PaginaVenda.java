@@ -6,7 +6,6 @@
 package br.edu.ifpb.bdnc.start.write.model.paginavenda;
 
 import br.edu.ifpb.bdnc.start.write.model.Pagina;
-import java.io.File;
 import java.util.ArrayList;
 import java.util.Objects;
 import org.bson.Document;
@@ -21,8 +20,8 @@ public class PaginaVenda extends Pagina{
     
     public PaginaVenda(){}
 
-    public PaginaVenda(ArrayList<PostagemVenda> postagens, String nome, String logomarca, String rodape) {
-        super(nome, logomarca, rodape);
+    public PaginaVenda(ArrayList<PostagemVenda> postagens, String nome, String logomarca, String rodape, String dono) {
+        super(nome, logomarca, rodape, dono);
         this.postagens = postagens;
     }
 
@@ -71,6 +70,7 @@ public class PaginaVenda extends Pagina{
         doc.append("logomarca", getLogomarca());
         doc.append("rodape", getRodape());
         doc.append("postagens", getPostagens());
+        doc.append("dono", getDono());
         return doc;
     }
     
@@ -78,8 +78,9 @@ public class PaginaVenda extends Pagina{
     public Pagina fromDocument(Document doc) {
         setNome(doc.getString("nome"));
         setRodape(doc.getString("rodape"));
-        setLogomarca(doc.get("logomarca", String.class));
+        setLogomarca(doc.getString("logomarca"));
         setPostagens((ArrayList<PostagemVenda>) doc.get("postagens"));
+        setDono(doc.getString("dono"));
         return this;
     }
 }

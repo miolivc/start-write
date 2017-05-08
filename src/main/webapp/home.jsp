@@ -40,7 +40,7 @@
                     <h2>Bem vindo(a), ${usuario.name}</h2>
 
                     <input type="button" onclick="criarBlog()" value="Criar um novo Blog"/>
-                    <button type="submit" onclick="listarBlogs()" value="Ver Blogs existentes"/>
+                    <input type="button" onclick="listarBlogs()" value="Ver Blogs existentes"/>
 
                 </div>
 
