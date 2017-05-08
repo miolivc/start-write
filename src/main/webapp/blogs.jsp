@@ -7,7 +7,7 @@
 -->
 
 
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <!-- Head -->
@@ -39,8 +39,16 @@
                 <div class="w3layoutscontaineragileits">
                     <h2>Bem vindo(a), ${usuario.name}</h2>
 
-                    <input type="button" name="new" onclick="criarBlog()" value="Criar um novo Blog"/>
-                    <input type="button" name="list" onclick="listarBlogs()" value="Ver Blogs existentes"/>
+                    <h3>Seus Blogs</h3>
+                    
+                    <c:forEach var="contato" items="${usuario.blogs}">
+                        <div>
+                            <p>${blog.nome}</p>
+                            <a href="#">Visualizar</a>
+                            <a href="#">Editar</a>
+                            <a href="#">Remover</a>
+                        </div>
+                    </c:forEach>
 
                 </div>
 
