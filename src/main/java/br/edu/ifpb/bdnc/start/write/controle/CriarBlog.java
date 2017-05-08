@@ -7,6 +7,7 @@ package br.edu.ifpb.bdnc.start.write.controle;
 
 import br.edu.ifpb.bdnc.start.write.dao.interfaces.PaginaVendaDao;
 import br.edu.ifpb.bdnc.start.write.dao.mongo.PaginaVendaDaoMongo;
+import br.edu.ifpb.bdnc.start.write.model.Usuario;
 import br.edu.ifpb.bdnc.start.write.model.paginavenda.PaginaVenda;
 import java.io.File;
 import java.io.IOException;
@@ -44,7 +45,8 @@ public class CriarBlog implements Comando {
                         String caminho = teste + File.separator + "img-logos" + File.separator + p.getSubmittedFileName();
                         p.write(caminho);
                         pagina.setLogomarca(caminho);
-                        pagina.setDono((String) request.getSession().getAttribute("dono"));
+                        Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
+                        pagina.setDono(usuario.getEmail());
                         break;
                     }
                 }
