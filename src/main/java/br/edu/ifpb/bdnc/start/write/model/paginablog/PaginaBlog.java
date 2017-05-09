@@ -6,27 +6,54 @@
 package br.edu.ifpb.bdnc.start.write.model.paginablog;
 
 import br.edu.ifpb.bdnc.start.write.model.Pagina;
+import java.util.ArrayList;
 import org.bson.Document;
-
 
 /**
  *
  * @author Alann Rodrigues
  */
-public class PaginaBlog extends Pagina{
+public class PaginaBlog extends Pagina {
+
+    private ArrayList<PostagemBlog> postagens;
     
-    public PaginaBlog(String nome, String logomarca, String rodape,String dono) {
+    public PaginaBlog(){}
+
+    public PaginaBlog(String nome, String logomarca, String rodape, String dono) {
         super(nome, logomarca, rodape, dono);
     }
 
+    public ArrayList<PostagemBlog> getPostagens() {
+        return postagens;
+    }
+
+    public void setPostagens(ArrayList<PostagemBlog> postagens) {
+        this.postagens = postagens;
+    }
+    
+    
+
     @Override
     public Document toDocument() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Document doc = new Document();
+        doc.append("nome", getNome());
+        doc.append("logomarca", getLogomarca());
+        doc.append("rodape", getRodape());
+        doc.append("postagens", getPostagens());
+        doc.append("dono", getDono());
+        return doc;
     }
 
     @Override
     public Pagina fromDocument(Document doc) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        PaginaBlog pagina = new PaginaBlog();
+        pagina.setNome(doc.getString("nome"));
+        pagina.setRodape(doc.getString("rodape"));
+        pagina.setLogomarca(doc.getString("logomarca"));
+        pagina.setPostagens((ArrayList<PostagemBlog>) doc.get("postagens"));
+        pagina.setDono(doc.getString("dono"));
+        System.out.println(pagina.toString());
+        return pagina;
     }
-    
+
 }

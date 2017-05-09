@@ -5,7 +5,6 @@
  */
 package br.edu.ifpb.bdnc.start.write.model.paginavenda;
 
-import java.util.Arrays;
 import java.util.Objects;
 
 /**
@@ -18,14 +17,14 @@ public class PostagemVenda{
     private String descricao;
     private float valor;
     private boolean disponibilidade;
-    private byte[] img;
+    private String img;
     private Categoria categoria;
     
     public PostagemVenda(){
         
     }
 
-    public PostagemVenda(String titulo, String descricao, float valor, boolean disponibilidade, byte[] img, Categoria categoria) {
+    public PostagemVenda(String titulo, String descricao, float valor, boolean disponibilidade, String img, Categoria categoria) {
         this.titulo = titulo;
         this.descricao = descricao;
         this.valor = valor;
@@ -66,11 +65,11 @@ public class PostagemVenda{
         this.disponibilidade = disponibilidade;
     }
 
-    public byte[] getImg() {
+    public String getImg() {
         return img;
     }
 
-    public void setImg(byte[] img) {
+    public void setImg(String img) {
         this.img = img;
     }
 
@@ -89,7 +88,6 @@ public class PostagemVenda{
         hash = 17 * hash + Objects.hashCode(this.descricao);
         hash = 17 * hash + Float.floatToIntBits(this.valor);
         hash = 17 * hash + (this.disponibilidade ? 1 : 0);
-        hash = 17 * hash + Arrays.hashCode(this.img);
         hash = 17 * hash + Objects.hashCode(this.categoria);
         return hash;
     }
@@ -118,9 +116,7 @@ public class PostagemVenda{
         if (!Objects.equals(this.descricao, other.descricao)) {
             return false;
         }
-        if (!Arrays.equals(this.img, other.img)) {
-            return false;
-        }
+        
         if (!Objects.equals(this.categoria, other.categoria)) {
             return false;
         }

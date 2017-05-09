@@ -16,6 +16,11 @@
     
     <dependencies>
         <dependency>
+            <groupId>org.neo4j.driver</groupId>
+            <artifactId>neo4j-java-driver</artifactId>
+            <version>1.2.0</version>
+        </dependency>
+        <dependency>
             <groupId>javax</groupId>
             <artifactId>javaee-web-api</artifactId>
             <version>7.0</version>
@@ -54,9 +59,14 @@
             <artifactId>jstl-impl</artifactId>
             <version>1.2</version>
         </dependency>
-
-
         
+        <!-- https://mvnrepository.com/artifact/org.neo4j/neo4j-jdbc-driver -->
+        <dependency>
+            <groupId>org.neo4j</groupId>
+            <artifactId>neo4j-jdbc-driver</artifactId>
+            <version>3.0.1</version>
+        </dependency>
+    
     </dependencies>
 
     <build>

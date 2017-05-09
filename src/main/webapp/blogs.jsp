@@ -1,4 +1,6 @@
 
+<%@page import="java.util.ArrayList"%>
+<%@page import="br.edu.ifpb.bdnc.start.write.model.Pagina"%>
 <!--
         Author: W3layouts
         Author URL: http://w3layouts.com
@@ -39,24 +41,27 @@
                 <div class="w3layoutscontaineragileits">
                     <h2>Bem vindo(a), ${usuario.name}</h2>
 
-                    <h3>Seus Blogs</h3><br/><br/><br/>
+                    <h2>Seus Blogs</h2>
 
                     <c:forEach var="pagina" items="${listaPaginas}"> 
                         <div>
-                            <p>${pagina.nome}</p>
-                            <a href="#">Visualizar Blog</a>
-							<a href="#">Gerenciar Postagens</a>
-                            <a href="#">Editar</a>
-                            <a href="#">Remover</a>
-                    </c:forEach>
+                            <form action="ControlePrincipal" method="post">
+                                <p>
+                                    <h3> ${pagina.nome} </h3>
+                                    <input type="hidden" value="${pagina.nome}" name="nomePagina">
+                                    <input type="hidden" value="Redirecionar" name="comando">
+                                    <input type="submit" value="Visualizar Blog"/>
+                                </p>
+                            </form>    
+                        </c:forEach>
 
-                <div class="w3footeragile">
-                    <p> &copy; 2017 | All Rights Reserved </p>
+                        <div class="w3footeragile">
+                            <p> &copy; 2017 | All Rights Reserved </p>
+                        </div>
+
+                    </div>
                 </div>
-
-            </div>
-        </div>
-        <script type="text/javascript" src="js/main.js"></script>
-    </body>
-    <!-- //Body -->
-</html>
+                <script type="text/javascript" src="js/main.js"></script>
+                </body>
+                <!-- //Body -->
+                </html>

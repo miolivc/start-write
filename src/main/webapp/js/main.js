@@ -19,3 +19,7 @@ function criarBlog(){
 function listarBlogs(){
     window.location.href = "blogs.jsp";
 }
+
+function salvaNomePagina(){
+    
+}
