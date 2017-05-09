@@ -12,7 +12,7 @@ public class FabricaSessao {
     private static Driver driver;
     
     public static Session getSession(){
-        driver = GraphDatabase.driver("bolt://localhost:7687", AuthTokens.basic("neo4j", "void"));
+        driver = GraphDatabase.driver("bolt://localhost:7687", AuthTokens.basic("neo4j", "ala91494924"));
         return driver.session();
     };
     

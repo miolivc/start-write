@@ -47,7 +47,7 @@
                         <div>
                             <form action="ControlePrincipal" method="post">
                                 <p>
-                                    <h3> ${pagina.nome} </h3>
+                                    <h2> ${pagina.nome} </h2>
                                     <input type="hidden" value="${pagina.nome}" name="nomePagina">
                                     <input type="hidden" value="Redirecionar" name="comando">
                                     <input type="submit" value="Visualizar Blog"/>

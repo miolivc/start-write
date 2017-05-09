@@ -7,6 +7,7 @@ package br.edu.ifpb.bdnc.start.write.controle;
 
 import br.edu.ifpb.bdnc.start.write.dao.interfaces.PaginaVendaDao;
 import br.edu.ifpb.bdnc.start.write.dao.mongo.PaginaVendaDaoMongo;
+import br.edu.ifpb.bdnc.start.write.dao.neo4j.DaoNeo4j;
 import br.edu.ifpb.bdnc.start.write.model.Pagina;
 import br.edu.ifpb.bdnc.start.write.model.Usuario;
 import br.edu.ifpb.bdnc.start.write.model.paginavenda.PaginaVenda;
@@ -41,17 +42,20 @@ public class CriarBlog implements Comando {
                 pagina = new PaginaVenda();
                 pagina.setNome(nome);
                 pagina.setRodape(rodape);
+                Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
                 List<Part> lista = (List) request.getParts();
                 for (Part p : lista) {
                     if (p.getName().equals("logomarca")) {
                         String caminho = pacoteAplicacao + File.separator + "img-logos" + File.separator + p.getSubmittedFileName();
                         p.write(caminho);
                         pagina.setLogomarca(caminho);
-                        Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
                         pagina.setDono(usuario.getEmail());
                         break;
                     }
                 }
+                
+                DaoNeo4j daoNeo4j = new DaoNeo4j();
+                daoNeo4j.addNode(pagina.getNome(), usuario.getEmail());
 
                 PaginaVendaDao dao = new PaginaVendaDaoMongo();
                 dao.add(pagina.toDocument());
