@@ -44,7 +44,8 @@
                     <c:forEach var="pagina" items="${listaPaginas}"> 
                         <div>
                             <p>${pagina.nome}</p>
-                            <a href="#">Visualizar</a>
+                            <a href="#">Visualizar Blog</a>
+							<a href="#">Gerenciar Postagens</a>
                             <a href="#">Editar</a>
                             <a href="#">Remover</a>
                     </c:forEach>

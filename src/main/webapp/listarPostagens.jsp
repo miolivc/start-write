@@ -39,12 +39,14 @@
                 <div class="w3layoutscontaineragileits">
                     <h2>Bem vindo(a), ${usuario.name}</h2>
 
-                    <h3>Seus Blogs</h3>
+                    <h3>Suas Postagens do blog ${pagina.name}</h3>
+
+					<input type="button" name="AdicionarPostagem" value="Adicionar nova Postagem"/>
 
                     <c:forEach var="postagem" items="${pagina.postagens}"> 
                         <div>
                             <p>${postagem.titulo}</p>
-                            <a href="#">Visualizar</a>
+							<a href="#">Visualizar</a>
                             <a href="#">Editar</a>
                             <a href="#">Remover</a>
                     </c:forEach>
