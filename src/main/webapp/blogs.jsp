@@ -39,7 +39,7 @@
                 <div class="w3layoutscontaineragileits">
                     <h2>Bem vindo(a), ${usuario.name}</h2>
 
-                    <h3>Seus Blogs</h3>
+                    <h3>Seus Blogs</h3><br/><br/><br/>
 
                     <c:forEach var="pagina" items="${listaPaginas}"> 
                         <div>

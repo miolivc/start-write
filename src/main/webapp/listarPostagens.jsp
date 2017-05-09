@@ -39,7 +39,7 @@
                 <div class="w3layoutscontaineragileits">
                     <h2>Bem vindo(a), ${usuario.name}</h2>
 
-                    <h3>Suas Postagens do blog ${pagina.name}</h3>
+                    <h3>Suas Postagens do blog ${pagina.name}</h3><br/><br/><br/>
 
 					<input type="button" name="AdicionarPostagem" value="Adicionar nova Postagem"/>
 
