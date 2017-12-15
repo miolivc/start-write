@@ -5,13 +5,13 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class PostgresConnectionFactory {
-    private static final String url = "jdbc:postgresql://127.0.0.1:5432/start-write";
-    private static final String user = "postgres";
-    private static final String password = "ALA91494924";
+    private static final String URL = "jdbc:postgresql://postgreshost:5432/start-write";
+    private static final String USER = "postgres";
+    private static final String PASSWORD = "postgres";
     
     public static Connection getConnection() throws SQLException, ClassNotFoundException{
         Class.forName("org.postgresql.Driver");
-        return DriverManager.getConnection(url, user, password);
+        return DriverManager.getConnection(URL, USER, PASSWORD);
     }
 
 }

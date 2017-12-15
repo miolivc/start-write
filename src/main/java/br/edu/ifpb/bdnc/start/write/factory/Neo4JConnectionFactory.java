@@ -1,4 +1,4 @@
-package br.edu.ifpb.bdnc.start.write.dao.neo4j;
+package br.edu.ifpb.bdnc.start.write.factory;
 
 
 
@@ -7,12 +7,13 @@ import org.neo4j.driver.v1.Driver;
 import org.neo4j.driver.v1.GraphDatabase;
 import org.neo4j.driver.v1.Session;
 
-public class FabricaSessao {
+public class Neo4JConnectionFactory {
 
     private static Driver driver;
     
     public static Session getSession(){
-        driver = GraphDatabase.driver("bolt://localhost:7687", AuthTokens.basic("neo4j", "ala91494924"));
+        driver = GraphDatabase.driver("bolt://localhost:7687", 
+                AuthTokens.none());
         return driver.session();
     };
     

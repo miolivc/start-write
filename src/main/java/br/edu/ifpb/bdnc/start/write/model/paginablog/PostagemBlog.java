@@ -63,10 +63,7 @@ public class PostagemBlog {
         if (!Objects.equals(this.assunto, other.assunto)) {
             return false;
         }
-        if (!Objects.equals(this.conteudo, other.conteudo)) {
-            return false;
-        }
-        return true;
+        return Objects.equals(this.conteudo, other.conteudo);
     }
 
     @Override

@@ -16,7 +16,8 @@ public class Usuario {
     
     public Usuario(){}
 
-    public Usuario(int id, String username, LocalDate birthDate, String password, String email, String name) {
+    public Usuario(int id, String username, LocalDate birthDate, 
+            String password, String email, String name) {
         this.id = id;
         this.username = username;
         this.birthDate = birthDate;
@@ -120,7 +121,9 @@ public class Usuario {
 
     @Override
     public String toString() {
-        return "Usuario{" + "id=" + id + ", username=" + username + ", birthDate=" + birthDate + ", password=" + password + ", email=" + email + ", name=" + name + '}';
+        return "Usuario{" + "id=" + id + ", username=" + username + 
+                ", birthDate=" + birthDate + ", password=" + password + 
+                ", email=" + email + ", name=" + name + '}';
     }
     
 }

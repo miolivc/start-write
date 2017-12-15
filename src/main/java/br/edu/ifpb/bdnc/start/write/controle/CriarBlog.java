@@ -7,7 +7,7 @@ package br.edu.ifpb.bdnc.start.write.controle;
 
 import br.edu.ifpb.bdnc.start.write.dao.interfaces.PaginaVendaDao;
 import br.edu.ifpb.bdnc.start.write.dao.mongo.PaginaVendaDaoMongo;
-import br.edu.ifpb.bdnc.start.write.dao.neo4j.DaoNeo4j;
+import br.edu.ifpb.bdnc.start.write.dao.neo4j.BlogDaoNeo4J;
 import br.edu.ifpb.bdnc.start.write.model.Pagina;
 import br.edu.ifpb.bdnc.start.write.model.Usuario;
 import br.edu.ifpb.bdnc.start.write.model.paginavenda.PaginaVenda;
@@ -46,7 +46,8 @@ public class CriarBlog implements Comando {
                 List<Part> lista = (List) request.getParts();
                 for (Part p : lista) {
                     if (p.getName().equals("logomarca")) {
-                        String caminho = pacoteAplicacao + File.separator + "img-logos" + File.separator + p.getSubmittedFileName();
+                        String caminho = pacoteAplicacao + File.separator + "img-logos" +
+                                File.separator + p.getSubmittedFileName();
                         p.write(caminho);
                         pagina.setLogomarca(caminho);
                         pagina.setDono(usuario.getEmail());
@@ -54,19 +55,21 @@ public class CriarBlog implements Comando {
                     }
                 }
                 
-                DaoNeo4j daoNeo4j = new DaoNeo4j();
+                BlogDaoNeo4J daoNeo4j = new BlogDaoNeo4J();
                 daoNeo4j.addNode(pagina.getNome(), usuario.getEmail());
 
                 PaginaVendaDao dao = new PaginaVendaDaoMongo();
                 dao.add(pagina.toDocument());
-                ArrayList<Pagina> listaPaginas = (ArrayList<Pagina>) request.getSession().getAttribute("listaPaginas");
+                ArrayList<Pagina> listaPaginas = (ArrayList<Pagina>) 
+                        request.getSession().getAttribute("listaPaginas");
                 listaPaginas.add(pagina);
                 request.getSession().setAttribute("listaPaginas", listaPaginas);
             }
 
             request.setAttribute("blog", pagina);
 
-            RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher("/home.jsp");
+            RequestDispatcher dispatcher = request.getServletContext()
+                                            .getRequestDispatcher("/home.jsp");
             dispatcher.forward(request, response);
 
         } catch (ServletException | IOException ex) {

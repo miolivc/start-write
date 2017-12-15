@@ -5,6 +5,7 @@
  */
 package br.edu.ifpb.bdnc.start.write.dao.neo4j;
 
+import br.edu.ifpb.bdnc.start.write.factory.Neo4JConnectionFactory;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,28 +18,31 @@ import static org.neo4j.driver.v1.Values.parameters;
  *
  * @author alann
  */
-public class DaoNeo4j {
+public class BlogDaoNeo4J {
 
     private final Session session;
 
-    public DaoNeo4j() {
-        session = FabricaSessao.getSession();
+    public BlogDaoNeo4J() {
+        this.session = Neo4JConnectionFactory.getSession();
     }
 
     public void addNode(String titulo, String template) throws IOException {
-        session.run("create (:Blog{titulo: {titulo}, template: {template}})", parameters("titulo", titulo, "template", template));
+        session.run("create (:Blog{titulo: {titulo}, template: {template}})", 
+                    parameters("titulo", titulo, "template", template));
         session.close();
     }
 
     public void deleteNode(String titulo) throws IOException {
-        session.run("match (b:Blog{titulo:{titulo}}) delete s", parameters("titulo", titulo));
+        session.run("match (b:Blog{titulo:{titulo}}) delete s", 
+                    parameters("titulo", titulo));
         session.close();
     }
 
     public List<String> getNodes(String template) throws IOException {
         List<String> lista = new ArrayList<>();
 
-        StatementResult stat = session.run("match (b:Blog{template: '" + template + "'}) return s");
+        StatementResult stat = session
+                .run("match (b:Blog{template: '" + template + "'}) return s");
 
         while (stat.hasNext()) {
             Record record = stat.next();

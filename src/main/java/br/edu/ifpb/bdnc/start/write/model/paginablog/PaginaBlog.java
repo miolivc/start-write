@@ -31,8 +31,6 @@ public class PaginaBlog extends Pagina {
         this.postagens = postagens;
     }
     
-    
-
     @Override
     public Document toDocument() {
         Document doc = new Document();

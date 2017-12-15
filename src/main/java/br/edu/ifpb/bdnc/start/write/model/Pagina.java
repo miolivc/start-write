@@ -99,7 +99,8 @@ public abstract class Pagina implements ToDocument<Pagina> {
 
     @Override
     public String toString() {
-        return "dono=" + dono + ", nome=" + nome + ", logomarca=" + logomarca + ", rodape=" + rodape;
+        return "dono=" + dono + ", nome=" + nome + ", logomarca=" 
+                + logomarca + ", rodape=" + rodape;
     }
 
     @Override

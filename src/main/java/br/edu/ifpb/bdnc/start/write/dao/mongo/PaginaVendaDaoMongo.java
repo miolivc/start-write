@@ -25,8 +25,8 @@ public class PaginaVendaDaoMongo implements PaginaVendaDao {
 
     public PaginaVendaDaoMongo() {
         database = MongoConnectionFactory.getConnection()
-                .getDatabase("start-write").
-                getCollection("paginaVenda");
+                .getDatabase("start-write")
+                .getCollection("paginaVenda");
     }
 
     @Override

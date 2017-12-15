@@ -1,0 +1,31 @@
+version: "2"
+services:
+  postgres:
+    build: ./database/postgres
+    image: start/postgres
+    container_name: db.postgres
+    ports:
+      - "5433:5432"
+  mongo:
+    build: ./database/mongo
+    image: start/mongo
+    container_name: db.mongo
+    ports:
+      - "27017:27017"
+  neo4j:
+    build: ./database/neo4j
+    image: start/neo4j
+    container_name: db.neo4j
+    ports:
+      - "7687:7687"
+  webapp:
+    build: .
+    image: start/app
+    container_name: app
+    ports: 
+      - "8080:8080" 
+    links: 
+      - "postgres:postgreshost"
+      - "mongo:mongohost"
+      - "neo4j:neo4jhost"
+    

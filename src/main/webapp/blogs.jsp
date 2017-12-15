@@ -47,10 +47,10 @@
                         <div>
                             <form action="ControlePrincipal" method="post">
                                 <p>
-                                    <h2> ${pagina.nome} </h2>
-                                    <input type="hidden" value="${pagina.nome}" name="nomePagina">
-                                    <input type="hidden" value="Redirecionar" name="comando">
-                                    <input type="submit" value="Visualizar Blog"/>
+                                <h2> ${pagina.nome} </h2>
+                                <input type="hidden" value="${pagina.nome}" name="nomePagina">
+                                <input type="hidden" value="Redirecionar" name="comando">
+                                <input type="submit" value="Visualizar Blog"/>
                                 </p>
                             </form>    
                         </c:forEach>
@@ -62,6 +62,6 @@
                     </div>
                 </div>
                 <script type="text/javascript" src="js/main.js"></script>
-                </body>
+        </body>
                 <!-- //Body -->
-                </html>
+</html>
